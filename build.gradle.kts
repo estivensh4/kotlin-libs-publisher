@@ -3,10 +3,11 @@ plugins {
     id("com.gradle.plugin-publish") version "0.15.0"
     `kotlin-dsl`
     groovy
+    `maven-publish`
 
 }
 
-group = "com.estivensh4"
+group = "io.github.estivensh4"
 version = "0.0.1"
 
 fun detectVersion(): String {
@@ -73,29 +74,49 @@ tasks.test {
     outputs.upToDateWhen { false }
 }
 
-val publishingPlugin = "jacocoCoveragePlugin"
+val jacocoCoveragePlugin = "jacocoCoveragePlugin"
+val jacocoFullReportPlugin = "jacocoFullReportPlugin"
 
 
 gradlePlugin {
     plugins {
-        create(publishingPlugin) {
-            id = "com.estiven.jacoco-coverage"
-            implementationClass = "com.estiven.jacoco.JacocoCoveragePlugin"
+        create(jacocoCoveragePlugin) {
+            id = "io.github.estivensh4.jacoco-coverage"
+            implementationClass = "io.github.estivensh4.jacoco.JacocoCoveragePlugin"
+        }
+
+        create(jacocoFullReportPlugin) {
+            id = "io.github.estivensh4.jacoco-full-report"
+            implementationClass = "io.github.estivensh4.jacoco.JacocoFullReportPlugin"
         }
 
     }
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "io.github.estivensh4"
+            artifactId = "jacoco"
+            version = "0.0.1"
+            from(components["java"])
+        }
+    }
+}
+
 pluginBundle {
-    // These settings are set for the whole plugin bundle
     website = "https://github.com/estivensh4/kotlin-libs-publisher"
     vcsUrl = website
+    tags = listOf("java", "code equality", "jacoco", "code coverage", "coverage")
 
     (plugins) {
-        publishingPlugin {
-            displayName = "Kotlin libs publisher plugin"
-            description = displayName
-            tags = listOf("kotlin", "publishing")
+        jacocoCoveragePlugin {
+            displayName = "Jacoco Coverage Plugin"
+            description = "The io.github.estivensh4.jacoco-coverage plugin allows Gradle build scripts to configure minimum Java Code Coverage thresholds for projects, packages, classes, and files."
+        }
+        jacocoFullReportPlugin {
+            displayName = "Jacoco Full Report Plugin"
+            description = "The io.github.estivensh4.jacoco-full-report plugin adds a task that produces a Jacoco report for the combined code coverage of the tests of all subprojects of the current project."
         }
     }
 }

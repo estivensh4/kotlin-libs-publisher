@@ -14,15 +14,12 @@
  * limitations under the License.
  */
 
-package com.estiven.jacoco
+package io.github.estivensh4.jacoco
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.internal.file.UnionFileCollection
-import org.gradle.api.tasks.TaskContainer
 import org.gradle.testing.jacoco.plugins.JacocoPlugin
 import org.gradle.testing.jacoco.tasks.JacocoReport
-import org.gradle.testing.jacoco.tasks.JacocoReportsContainer
 
 /**
  * Adds a 'jacocoFullReport' task to the current project that produces a Jacoco report for code coverage of the tests

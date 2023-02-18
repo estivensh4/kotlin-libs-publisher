@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.estiven.jacoco
+package io.github.estivensh4.jacoco
 
 import groovy.util.slurpersupport.GPathResult
 import org.gradle.api.DefaultTask

@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
-package com.estiven.jacoco;
-
-import java.util.EnumMap;
+package io.github.estivensh4.jacoco;
 
 /**
- * The coverage observations (e.g., as extracted from the Jacoco XML report) for one scope.
+ * An enumeration of the coverage types used in Jacoco's XML reports.
  */
-public final class CoverageObservation extends EnumMap<CoverageType, CoverageCounter> {
-    public CoverageObservation() {
-        super(CoverageType.class);
-    }
+public enum CoverageType {
+    BRANCH,
+    CLASS,
+    COMPLEXITY,
+    INSTRUCTION,
+    LINE,
+    METHOD
 }

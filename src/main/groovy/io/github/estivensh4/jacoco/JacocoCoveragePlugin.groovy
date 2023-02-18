@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.estiven.jacoco
+package io.github.estivensh4.jacoco
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

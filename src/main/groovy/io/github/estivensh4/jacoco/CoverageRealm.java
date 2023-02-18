@@ -14,30 +14,21 @@
  * limitations under the License.
  */
 
-package com.estiven.jacoco;
+package io.github.estivensh4.jacoco;
 
-/**
- * Holds the coverage observations for a single scope and coverage type.
- */
-public final class CoverageCounter {
-    private final int covered;
-    private final int missed;
+public enum CoverageRealm {
+    FILE("sourcefile", "fileThreshold"),
+    CLASS("class", "classThreshold"),
+    PACKAGE("package", "packageThreshold"),
+    REPORT("report", "reportThreshold");
 
-    CoverageCounter(int covered, int missed) {
-        this.covered = covered;
-        this.missed = missed;
-    }
+    /** The name of the XML tag (in the Jacoco coverage XML report ) for this realm. */
+    public final String tagName;
+    /** The configuration DSL name for this realm. */
+    public final String realmName;
 
-    public int getCovered() {
-        return covered;
-    }
-
-    public int getMissed() {
-        return missed;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Covered: %d, Missed: %d", covered, missed);
+    CoverageRealm(String tagName, String realmName) {
+        this.tagName = tagName;
+        this.realmName = realmName;
     }
 }
