@@ -1,13 +1,13 @@
 plugins {
     `java-gradle-plugin`
     id("com.gradle.plugin-publish") version "0.15.0"
-    id("org.jlleitschuh.gradle.ktlint") version "10.0.0"
-    kotlin("jvm") version "1.6.0"
     `kotlin-dsl`
+    groovy
+
 }
 
-group = "com.estivensh4.group"
-version = detectVersion()
+group = "com.estivensh4"
+version = "0.0.1"
 
 fun detectVersion(): String {
     val buildNumber = rootProject.findProperty("build.number") as String?
@@ -33,6 +33,7 @@ val detectVersionForTC by tasks.registering {
 val junitVersion: String by project
 
 repositories {
+    google()
     mavenCentral()
     gradlePluginPortal()
 }
@@ -72,14 +73,14 @@ tasks.test {
     outputs.upToDateWhen { false }
 }
 
-val publishingPlugin = "publishing"
-val docPlugin = "doc"
+val publishingPlugin = "jacocoCoveragePlugin"
+
 
 gradlePlugin {
     plugins {
         create(publishingPlugin) {
-            id = "com.palantir.jacoco-coverage"
-            implementationClass = "com.palantir.jacoco.JacocoCoveragePlugin"
+            id = "com.estiven.jacoco-coverage"
+            implementationClass = "com.estiven.jacoco.JacocoCoveragePlugin"
         }
 
     }
@@ -87,7 +88,7 @@ gradlePlugin {
 
 pluginBundle {
     // These settings are set for the whole plugin bundle
-    website = "https://github.com/palantir/gradle-jacoco-coverage"
+    website = "https://github.com/estivensh4/kotlin-libs-publisher"
     vcsUrl = website
 
     (plugins) {

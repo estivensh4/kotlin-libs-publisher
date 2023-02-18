@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.palantir.jacoco
+package com.estiven.jacoco
 
-import com.google.common.collect.Maps
-import com.google.common.collect.Multimap
 import groovy.util.slurpersupport.GPathResult
 import org.gradle.api.DefaultTask
 import org.gradle.api.GradleException
 import org.gradle.api.tasks.TaskAction
+import org.jetbrains.kotlin.com.google.common.collect.Maps
+import org.jetbrains.kotlin.com.google.common.collect.Multimap
 
 public class JacocoCoverageTask extends DefaultTask {
 

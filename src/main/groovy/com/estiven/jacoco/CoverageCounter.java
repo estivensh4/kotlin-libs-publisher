@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.palantir.jacoco;
+package com.estiven.jacoco;
 
 /**
  * Holds the coverage observations for a single scope and coverage type.

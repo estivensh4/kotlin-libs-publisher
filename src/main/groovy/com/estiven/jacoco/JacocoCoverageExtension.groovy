@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.palantir.jacoco
+package com.estiven.jacoco
 
-import com.google.common.collect.ArrayListMultimap
-import com.google.common.collect.Multimap
+import org.jetbrains.kotlin.com.google.common.collect.Multimap
 
 import java.util.regex.Pattern
 

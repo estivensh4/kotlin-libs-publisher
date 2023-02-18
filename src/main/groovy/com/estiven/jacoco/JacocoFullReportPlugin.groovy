@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.palantir.jacoco
+package com.estiven.jacoco
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

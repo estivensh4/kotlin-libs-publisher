@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.palantir.jacoco
+package com.estiven.jacoco
 
 public class JacocoFullReportExtension {
 
